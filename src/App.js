@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React,{useState,createContext, useEffect} from 'react'
+import Home from './Pages/Home/Home'
 import './App.css';
+import "./Common/Style/Mixin.scss"
+import "./Common/Component/Style.scss"
+import { currentScrollIndex } from './Pages/Home/HomeUtlis';
+
+export const ScrollContext=createContext()
 
 function App() {
+const [scrolledTo, setscrolledTo] = useState(1)
+
+const getCurrentScrollPosition = () =>{
+  let setScrollIndex=currentScrollIndex()
+  setscrolledTo(setScrollIndex)
+  
+}
+
+useEffect(()=>{
+  window.addEventListener("scroll",getCurrentScrollPosition)
+  return(()=>{
+    window.removeEventListener("scroll",getCurrentScrollPosition)
+  })
+})
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ScrollContext.Provider value={{scrolledTo:scrolledTo, setscrolledTo:setscrolledTo}}>
+       <Home/>
+      </ScrollContext.Provider>
     </div>
   );
 }
