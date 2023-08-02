@@ -1,4 +1,4 @@
-import { aboutPageid, blogPageid, homePageid, menuPageid, reservationPageid, reviewPageid } from "../../Common/Const";
+import { aboutPageid, blogPageid, menuPageid, reservationPageid, reviewPageid } from "../../Common/Const";
 
 export const filterBeverages=(beverages,type)=>{
     console.log("utils",beverages,type)
