@@ -48,4 +48,4 @@ export const Newsletter="Newsletter"
 export const NewsletterText = `You can trust us. we only send promo offers, not a single spam.`
 
 export const footer2Text1="Copyright"
-export const footer2Text2="All rights reserved | This template is made with"
+export const footer2Text2="All rights reserved | This Web Site is made with love"
